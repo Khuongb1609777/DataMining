@@ -1,7 +1,11 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, session
 import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 import csv
 from werkzeug.utils import secure_filename
+from sklearn.cluster import KMeans
 import uuid #Random Short Id
 import os
 
@@ -9,6 +13,8 @@ UPLOAD_FOLDER = 'static/uploads/kmeans' #Location is saving uploaded
 ALLOWED_EXTENSIONS = {'csv'} #Kind of file
 
 app = Flask(__name__)
+
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/' #Secret key of Session
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/', methods=['GET', 'POST'])
@@ -92,11 +98,51 @@ def kmeans_data():
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], str(uuid.uuid4())[:8] + '_' + filename)
             file.save(file_path)
 
+            session['csvfile'] = file_path #Save path file to session
             data = pd.read_csv(file_path)
         
             m = data.shape[1]
 
             return render_template('kmeans/data.html', data=data.to_html(table_id='myTable', classes='table table-striped', header=True, index=False), m=m)
+
+@app.route('/kmeans/elbow', methods=['GET', 'POST'])
+def kmeans_elbow():
+    file_path = session.get('csvfile')
+    data = pd.read_csv(file_path)
+
+    col = request.form.getlist('cot') #Get values of checkbox form from
+    col = np.array(col)
+    col1 = col[0]
+    col2 = col[1]
+
+    session['col1'] = col1 #Save column to session
+    session['col2'] = col2 #Save column to session
+
+    m = data.shape[1]
+    haha = 0
+    X = data.iloc[int(haha):, [int(col1), int(col2)]].values
+
+    # Tiến hành gom nhóm (Elbow)
+    # Chạy thuật toán KMeans với k = (1, 10)
+
+    clusters = []
+    for i in range(1, 10):
+        km = KMeans(n_clusters=i).fit(X)
+        clusters.append(km.inertia_)
+
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.lineplot(x=list(range(1, 10)), y=clusters, ax=ax)
+
+    ax.set_title("Đồ thị Elbow")
+    ax.set_xlabel("Số lượng nhóm")
+    ax.set_ylabel("Gía trị Inertia")
+
+    # plt.show()
+    # plt.cla()
+    image = 'static/images_kmeans/'+ str(uuid.uuid4())[:8] +'_elbow.png'
+    plt.savefig(image)
+
+    return render_template('kmeans/elbow.html', data=data.to_html(classes='table table-striped', header=False, index=False), url='/'+image)
 
 if __name__ == '__main__':
     app.run(debug=True)
