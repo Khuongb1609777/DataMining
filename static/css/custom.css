@@ -17,3 +17,11 @@
     top: 0;
     opacity: 0;
 }
+
+.single-checkbox{
+    height: 20px !important;
+    box-sizing: unset;
+    padding: 0;
+    width: 20px !important;
+
+}
