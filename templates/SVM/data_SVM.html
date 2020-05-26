@@ -4,7 +4,7 @@
 <div class="container mt-5">
     {% if errors %}
     <div class="alert alert-danger" role="alert">
-        <strong>Error:</strong> <span>{{ errors }}</span> <a href="/kmeans" class="alert-link"> Click here to return
+        <strong>Error:</strong> <span>{{ errors }}</span> <a href="/SVM" class="alert-link"> Click here to return
             to page !</a>
     </div>
     {% else %}
@@ -21,27 +21,6 @@
 
     <div class="card text-center mt-3">
         <form id="form" action="result" method="post">
-        
-
-            <!--User select column is data for model-->        
-            <div class="card-header text-monospace">
-                <h3>Select columns then SVM</h3>
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <tr>
-                        {%for i in range(0, m)%}
-                        <td>
-                        <input class="checkbox" type="checkbox" name="column_data" id="check{{i}}" value={{i}}>
-                        <label class="label" for="check{{i}}">Column: {{i}}</label>
-                        </td>
-                        {%endfor%}
-                    </tr>
-                </table>
-            </div> 
-            <!--End select column data-->
-
-
             <!--User select column is label-->
             <div class="card-header text-monospace">
                     <h3>Select a column is label then SVM</h3>
@@ -49,16 +28,41 @@
                 <div class="card-body">
                     <table class="table">
                         <tr>
-                            {%for i in range(0, m)%}
+                            {%for i in array_col_data%}
+                           
                             <td>
                             <input class="checkbox" type="radio" name="column_label" id="check{{i}}" value={{i}}>
                             <label class="label" for="check{{i}}">Column: {{i}}</label>
                             </td>
+
                             {%endfor%}
+                            
                         </tr>
                     </table>
                 </div> 
             <!--End select column label-->
+
+
+            <!--User select column is data for model-->        
+            <div class="card-header text-monospace">
+                    <h3>Select columns then SVM</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            {%for i in array_col_data%}
+                            <td>
+                            <input class="checkbox" type="checkbox" name="column_data" id="check{{i}}" value={{i}}>
+                            <label class="label" for="check{{i}}">Column: {{i}}</label>
+                            </td>
+                            {%endfor%}
+                            <td><input type="checkbox" id="check_all" onClick="toggle(this)" /> 
+                                <label class="label" for="check_all">Check all</label>
+                                </td>
+                        </tr>
+                    </table>
+                </div> 
+                <!--End select column data-->
 
 
             <!--User select kernel for SVM model-->
@@ -91,7 +95,7 @@
 
 
             <div class="card-footer text-muted">
-                <input type="submit" class="btn btn-primary" value="Start">
+                <input type="submit" class="btn btn-primary" value="Classify">
             </div>
         </form>
     </div>

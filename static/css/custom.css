@@ -25,3 +25,178 @@
     width: 20px !important;
 
 }
+
+
+
+/*--------------------------------------------*/
+/* CSS index */
+
+/*Nav*/
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.navbar{
+    background-color: #008080;
+}
+
+.container ul{
+    margin:auto !important;
+    border: 2px solid white !important;
+}
+
+/*slide show*/
+.carousel-inner img{
+    width: 100%;
+}
+.caption {
+    width: 30% !important;
+    height: 80px !important;
+    background-color: dimgray;
+    opacity: 0.9;
+    color: white !important;
+    margin: auto;
+    border-radius: 15px;
+}
+
+
+
+/* Tầm nhìn và sứ mệnh */
+.quote1{
+    color: white;
+    background-color:#006400;
+    font-size: 18px;
+    padding: 15px;
+}
+.quote2{
+    color: white;
+    background-color:#4682B4;
+    font-size: 18px;
+    padding: 15px;  
+}
+.quote3{
+    color: white;
+    background-color: #CD5C5C;
+    font-size: 18px;
+    padding: 15px;  
+}
+
+
+
+/* Các số liệu ấn tượng */
+.box-object{
+    height: 90% !important;
+    width: 90% !important;
+    background-color: white;
+    border-radius: 25px;
+    font-size: 18px;
+}
+.box-object h3{
+    font-family: 'Noto Serif', serif;
+    font-style: normal;
+}
+.nenxam{
+    width:100% !important;
+    background: #DCDCDC;
+}
+
+
+/*Câu nói của người đứng đầu (đại loại vậy)*/
+.chamngon h2{
+    font-family: 'Noto Serif', serif;
+    color:#CD853F;
+}
+
+
+/*Băng rôn triết lý */
+.bangron{
+    width: 100% !important;
+    height: 35% !important;
+    background-color: darkslategrey;
+    margin: auto !important;
+}
+.bangron h2{
+    color:white !important;
+    font-family: 'Noto Serif', serif;
+}
+
+
+/* Sau tốt nghiệp*/
+
+
+
+/* clear fix thủ công */
+.fix{
+    height: 10% !important;
+    width:85% !important;
+}
+
+
+/* Nút ấn đăng ký*/
+.btn{
+    font-weight: 600 !important;
+
+    border-radius: 20px;
+}
+.btn-primary{
+    width:140px !important;
+    height: 50px !important;
+    border-radius: 28px !important;
+    font-size:20px !important;
+}
+
+
+
+
+/* footter*/
+.footer {
+    width: 100% !important;
+    height: 35% !important;
+    background-color:#4682B4;
+    color: white !important;
+}
+.footer1 {
+    color: white !important;
+}
+.footer1 li{
+    text-align: left;
+    list-style-type:none;
+    height: 40px;
+}
+
+/*Thông tin tuyển sinh*/
+
+.post-item{
+    background-color: darkgray !important;
+}
+
+
+.tuyensinh{
+    height:10% !important;
+    width: 80% !important;
+}
+
+.tuyensinh1{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+  }
+
+.zoom {
+    transition: transform .2s; /* Animation */
+    z-index: -1;
+  }
+
+.caption2{
+    width: 50% !important;
+    height: 80px !important;
+    background-color: dimgray;
+    opacity: 0.9;
+    margin: auto;
+    border-radius: 15px;
+}
