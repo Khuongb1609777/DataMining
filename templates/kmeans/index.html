@@ -1,7 +1,7 @@
 {% extends './base.html' %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container">
     <!-- {% if errors %}
     <div class="alert alert-warning alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
@@ -13,7 +13,7 @@
     <div class="card text-center">
         <div class="card-header text-monospace">
             <h1>Import your Data</h1>
-            <h3>Upload a CSV file to import text data</h3>
+            <h3>Upload a file to import text data (CSV, EXCEL, JSON)</h3>
         </div>
         <form id="form" action="kmeans/data" method="POST" enctype="multipart/form-data">
             <div class="card-body">
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="card-footer text-muted">
-                <input type="submit" class="btn btn-primary" value="Upload">
+                <input type="submit" class="btn btn-primary" value="Submit">
             </div>
         </form>
     </div>
