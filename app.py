@@ -77,8 +77,14 @@ def SVM_data():
             #   create session file
             session['csvfile'] = file_path #    Save path file to session
 
-            #   Get and read data with pandas
-            data = pd.read_csv(file_path)
+            file_tail = file_path.split(".")[1]
+
+            if file_tail == "csv":
+                data = pd.read_csv(file_path)
+            elif file_tail == "excel":
+                data = pd.read_excel(file_path)
+            else:
+                data = pd.read_excel(file_path)
 
             #   m is columns_number 
             m = data.shape[1]
@@ -92,7 +98,15 @@ def SVM_data():
                 col = "col_" + str(i)
                 column_names_attribute.append(col)
             #   Read data and append column_name
-            data = pd.read_csv(file_path,names = column_names_attribute)
+
+            file_tail = file_path.split(".")[1]
+
+            if file_tail == "csv":
+                data = pd.read_csv(file_path,names = column_names_attribute)
+            elif file_tail == "excel":
+                data = pd.read_excel(file_path,names = column_names_attribute)
+            else:
+                data = pd.read_excel(file_path,names = column_names_attribute)
             #   Return data_SVM.html 
             return render_template('SVM/data_SVM.html', data=data.to_html(table_id='myTable', classes='table table-striped', header=True, index=False),array_col_data = array_col_data, m=m)
 
@@ -103,7 +117,14 @@ def SVM_result():
     file_path = session.get('csvfile')
 
     #   Read file with pandas
-    data = pd.read_csv(file_path)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path)
+    else:
+        data = pd.read_excel(file_path)
 
     #   Get columns_number of dataset
     m = data.shape[1]
@@ -115,7 +136,14 @@ def SVM_result():
         column_names_attribute.append(col)
 
     #   Read file append column_names
-    data = pd.read_csv(file_path,names = column_names_attribute)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path,names = column_names_attribute)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path,names = column_names_attribute)
+    else:
+        data = pd.read_excel(file_path,names = column_names_attribute)
 
     #   Request column_label from form 
     col_label = (request.form.get('column_label'))
@@ -203,7 +231,14 @@ def SVM_test_new():
     select_kernel = session.get('kernel')
 
     #   Read data
-    data = pd.read_csv(file_path)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path)
+    else:
+        data = pd.read_excel(file_path)
 
 
     X = data.iloc[:,col_data]
@@ -268,7 +303,14 @@ def DTree_data():
             session['csvfile'] = file_path #Save path file to session
 
             #   Read file with pandas
-            data = pd.read_csv(file_path)
+            file_tail = file_path.split(".")[1]
+
+            if file_tail == "csv":
+                data = pd.read_csv(file_path)
+            elif file_tail == "excel":
+                data = pd.read_excel(file_path)
+            else:
+                data = pd.read_excel(file_path)
         
             m = data.shape[1]
             #   Col_data is data for model
@@ -285,7 +327,14 @@ def DTree_data():
                 column_names_attribute.append(col)
 
             #   Read file with file_names
-            data = pd.read_csv(file_path,names = column_names_attribute)
+            file_tail = file_path.split(".")[1]
+
+            if file_tail == "csv":
+                data = pd.read_csv(file_path,names = column_names_attribute)
+            elif file_tail == "excel":
+                data = pd.read_excel(file_path,names = column_names_attribute)
+            else:
+                data = pd.read_excel(file_path,names = column_names_attribute)
 
             return render_template('DecisionTree/data_DecisionTree.html', data=data.to_html(table_id='myTable', classes='table table-striped', header=True, index=False),array_col_data = array_col_data, m=m)
 
@@ -293,7 +342,14 @@ def DTree_data():
 def DTree_result():
     #   Get file_path from session
     file_path = session.get('csvfile')
-    data = pd.read_csv(file_path)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path)
+    else:
+        data = pd.read_excel(file_path)
     m = data.shape[1]
 
     #   Create columns_name
@@ -303,7 +359,14 @@ def DTree_result():
         col = "col_" + str(i)
         column_names_attribute.append(col)
     #   Read file with column_names
-    data = pd.read_csv(file_path,names = column_names_attribute)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path,names = column_names_attribute)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path,names = column_names_attribute)
+    else:
+        data = pd.read_excel(file_path,names = column_names_attribute)
 
     #   Request column_label from form 
     col_label = (request.form.get('column_label'))
@@ -383,7 +446,14 @@ def DTree_test_new():
     accuracy = session.get('acc')
 
     #   Read file
-    data = pd.read_csv(file_path)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path)
+    else:
+        data = pd.read_excel(file_path)
 
     #   Select data
     X = data.iloc[:,col_data]
@@ -449,7 +519,14 @@ def NaiveBayes_data():
             session['csvfile'] = file_path #Save path file to session
 
             #   Read file
-            data = pd.read_csv(file_path)
+            file_tail = file_path.split(".")[1]
+
+            if file_tail == "csv":
+                data = pd.read_csv(file_path)
+            elif file_tail == "excel":
+                data = pd.read_excel(file_path)
+            else:
+                data = pd.read_excel(file_path)
         
             m = data.shape[1]
 
@@ -465,7 +542,14 @@ def NaiveBayes_data():
                 column_names_attribute.append(col)
 
             #   Read data with column_names
-            data = pd.read_csv(file_path,names = column_names_attribute)
+            file_tail = file_path.split(".")[1]
+
+            if file_tail == "csv":
+                data = pd.read_csv(file_path,names = column_names_attribute)
+            elif file_tail == "excel":
+                data = pd.read_excel(file_path,names = column_names_attribute)
+            else:
+                data = pd.read_excel(file_path,names = column_names_attribute)
 
             return render_template('NaiveBayes/data_NaiveBayes.html', data=data.to_html(table_id='myTable', classes='table table-striped', header=True, index=False),array_col_data = array_col_data, m=m)
 
@@ -476,7 +560,14 @@ def NaiveBayes_result():
     file_path = session.get('csvfile')
 
     #   Read file
-    data = pd.read_csv(file_path)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path)
+    else:
+        data = pd.read_excel(file_path)
     m = data.shape[1]
 
     #   Create columns_names
@@ -487,7 +578,14 @@ def NaiveBayes_result():
         column_names_attribute.append(col)
 
     #   Read file with columns_names
-    data = pd.read_csv(file_path,names = column_names_attribute)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path,names = column_names_attribute)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path,names = column_names_attribute)
+    else:
+        data = pd.read_excel(file_path,names = column_names_attribute)
 
     #   Request column_label from form 
     col_label = (request.form.get('column_label'))
@@ -566,7 +664,14 @@ def NaiveBayes_test_new():
     accuracy = session.get('acc')
 
     #   Read file
-    data = pd.read_csv(file_path)
+    file_tail = file_path.split(".")[1]
+
+    if file_tail == "csv":
+        data = pd.read_csv(file_path)
+    elif file_tail == "excel":
+        data = pd.read_excel(file_path)
+    else:
+        data = pd.read_excel(file_path)
 
     #   X and y for model
     X = data.iloc[:,col_data]
