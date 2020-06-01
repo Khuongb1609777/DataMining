@@ -165,7 +165,8 @@ def SVM_result():
         col_data[i] = int(col_data[i])
 
     #   Remove col_label
-    col_data.remove(col_label)
+    if col_label in col_data:
+        col_data.remove(col_label)
 
     #   set session col_data
     session['col_data'] = col_data
@@ -385,7 +386,8 @@ def DTree_result():
         col_data[i] = int(col_data[i])
 
     #   Remove col_label
-    col_data.remove(col_label)
+    if col_label in col_data:
+        col_data.remove(col_label)
 
     #   set session col_data
     session['col_data'] = col_data
@@ -603,7 +605,8 @@ def NaiveBayes_result():
     for i in range(len(col_data)):
         col_data[i] = int(col_data[i])
     #   Remove col_label
-    col_data.remove(col_label)
+    if col_label in col_data:
+        col_data.remove(col_label)
 
     #   set session col_data
     session['col_data'] = col_data
