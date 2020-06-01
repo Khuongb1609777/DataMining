@@ -26,9 +26,11 @@
         <form id="form" action="elbow" method="post">
             <div class="card-body">
                 {%for i in range(0, m)%}
-                <input class="single-checkbox" type="checkbox" name="cot" id="check{{i}}" value={{i}}>
-                <label class="single-label" for="check{{i}}">Column: {{i+1}}</label>
+                <input class="single-checkbox" type="checkbox" name="cot" id="check{{i}}" value={{i}} onclick="play()">
+                <label class="single-label mr-5" for="check{{i}}">Column: {{i+1}}</label>
                 {%endfor%}
+                <input class="single-checkbox" type="checkbox" id="checkall" onClick="toggle(this)" />
+                <label class="single-label text-danger" for="checkall">Check All</label>
             </div>
             <div class="card-footer text-muted">
                 <input type="submit" class="btn btn-primary" value="Clustering">
@@ -42,7 +44,7 @@
 <script>
     $(document).ready(function () {
         $('#myTable').DataTable();
-    });
+    });s
 </script>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">

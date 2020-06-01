@@ -1,0 +1,51 @@
+{% extends './base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header text-monospace">
+            <h3>Result of clustering</h3>
+        </div>
+        <div class="card-body">
+            {{data|safe}}
+        </div>
+    </div>
+
+    {% if url %}
+    <div class="card text-center mt-3">
+        <div class="card-header text-monospace">
+            <h3>Image of clustering</h3>
+        </div>
+        <div class="card-body">
+            <img src={{url}} alt="Chart" width="100%">
+        </div>
+    </div>
+    {%endif%}
+
+    {% if result %}
+    <div class="card text-center mt-3">
+        <div class="card-header text-monospace">
+            <h3>Result of Predict <span class="text-primary">{{array_values}}</span></h3>
+        </div>
+        <div class="card-body">
+            <span class="text-primary">
+                <h3>Elements belong Cluster: <h3 class="text-danger">{{result + 1}}</h3></h3>
+            </span>
+        </div>
+        <div class="card-footer text-muted">
+            <a class="btn btn-primary" href="/kmeans">Home</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<!-- Pagination -->
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="{{ url_for('static', filename='javascripts/custom.js') }}"></script>
+{% endblock %}

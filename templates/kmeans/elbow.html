@@ -1,7 +1,7 @@
 {% extends './base.html' %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container">
     <div class="card text-center">
         <div class="card-header text-monospace">
             <h3>Recommend number of cluster</h3>
@@ -12,10 +12,10 @@
     </div>
 
     <div class="card text-center mt-3">
-        <div class="card-header text-monospace">
-            <h3>Type number cluster then clustering</h3>
-        </div>
         <form id="form" action="result" method="post">
+            <div class="card-header text-monospace">
+                <h3>Type number cluster then clustering</h3>
+            </div>
             <div class="card-body">
                 <p class="card-text">Type number of cluster or Choose according to the system then <span class="badge badge-primary">Continue Clustering</span> button!.</p>
                 <div class="col-md-12 mb-4">
@@ -27,10 +27,28 @@
                     </div>
                 </div>
             </div>
+            <div class="card-header card-footer text-monospace">
+                <h3>Enter elements for Predict</h3>
+            </div>
+                <div class="card-body">
+                    <div class="card-deck">
+                    {%for i in range(0, predColumn)%}
+                        <div class="card text-primary">
+                            <div class="card-header text-monospace">
+                                <h3>Attribute {{i}}</h3>
+                            </div>
+                            <div class="card-body">    
+                                <input type="text" id="input" class="form-control" name="attributePre" required="required" placeholder="Enter Attribute" title="">
+                            </div>
+                        </div>
+                    {%endfor%}
+                    </div>
+                </div>
             <div class="card-footer text-muted">
                 <input type="submit" class="btn btn-primary" value="Continue Clustering">
             </div>
         </form>
+        <audio id="audio" src="https://static.xx.fbcdn.net/rsrc.php/yR/r/lvSDckxyoU5.ogg"></audio>
     </div>
 </div>
 {% endblock %}

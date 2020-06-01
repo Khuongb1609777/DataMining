@@ -15,6 +15,9 @@ from werkzeug.utils import secure_filename
 from sklearn.cluster import KMeans
 import uuid #   Random Short Id
 import os
+import random
+import matplotlib
+matplotlib.use('svg')
 
 #   Create UPLOAD_FOLDER is static/uploads
 UPLOAD_FOLDER = 'static/uploads' #  Location is saving uploaded
@@ -724,29 +727,55 @@ def kmeans_data():
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], str(uuid.uuid4())[:8] + '_' + filename)
             file.save(file_path)
 
-            session['csvfile'] = file_path #Save path file to session
-            data = pd.read_csv(file_path)
-        
-            m = data.shape[1]
+            session['readFile'] = file_path #Save path file to session
+
+            checkFile = file_path.split(".")[1] #Cut the file extension
+
+            if(checkFile == "csv"):
+                data = pd.read_csv(file_path)
+            elif(checkFile == "xlsx"):
+                data = pd.read_excel(file_path)
+            elif(checkFile == "json"):
+                data = pd.read_json(file_path)
+
+            m = data.shape[1] #Get amount column
 
             return render_template('kmeans/data.html', data=data.to_html(table_id='myTable', classes='table table-striped', header=True, index=False), m=m)
 
 @app.route('/kmeans/elbow', methods=['GET', 'POST'])
 def kmeans_elbow():
-    file_path = session.get('csvfile')
-    data = pd.read_csv(file_path)
+    predColumn = session.get('predColumn') #Get the column 
+
+    file_path = session.get('readFile')
+
+    checkFile = file_path.split(".")[1] #Cut the file extension
+
+    if(checkFile == "csv"):
+        data = pd.read_csv(file_path)
+    elif(checkFile == "xlsx"):
+        data = pd.read_excel(file_path)
+    elif(checkFile == "json"):
+        data = pd.read_json(file_path)
 
     col = request.form.getlist('cot') #Get values of checkbox form from
-    col = np.array(col)
-    col1 = col[0]
-    col2 = col[1]
+    # col = np.array(col)
+    session['predColumn'] = len(col) #Set column predict
 
-    session['col1'] = col1 #Save column to session
-    session['col2'] = col2 #Save column to session
+    for i in range(len(col)):
+        col[i] = int(col[i])
+
+    # print(col)
+
+    session['col'] = col #Save values of checkbox to session
+    # col1 = col[0]
+    # col2 = col[1]
+
+    # session['col1'] = col1 #Save column to session
+    # session['col2'] = col2 #Save column to session
 
     m = data.shape[1]
     haha = 0
-    X = data.iloc[int(haha):, [int(col1), int(col2)]].values
+    X = data.iloc[int(haha):, col].values
 
     # Tiến hành gom nhóm (Elbow)
     # Chạy thuật toán KMeans với k = (1, 10)
@@ -761,14 +790,107 @@ def kmeans_elbow():
 
     ax.set_title("Đồ thị Elbow")
     ax.set_xlabel("Số lượng nhóm")
-    ax.set_ylabel("Giá trị Inertia")
+    ax.set_ylabel("Gía trị Inertia")
 
     # plt.show()
     # plt.cla()
-    image = 'static/images_kmeans/'+ str(uuid.uuid4())[:8] +'_elbow.png'
+    # image = 'static/images/kmeans/'+ str(uuid.uuid4())[:8] +'_elbow.png'
+    image = 'static/images_kmeans/elbow.svg'
     plt.savefig(image)
+    plt.clf()
 
-    return render_template('kmeans/elbow.html', data=data.to_html(classes='table table-striped', header=False, index=False), url='/'+image)
+    return render_template('kmeans/elbow.html', data=data.to_html(classes='table table-striped', header=False, index=False), url='/'+image, predColumn=predColumn)
+
+@app.route('/kmeans/result', methods=['GET', 'POST'])
+def kmeans_result():
+    valuesPred = request.form.getlist('attributePre')
+
+    array_values = []
+    for i in range(len(valuesPred)):
+        array_values.append(float(valuesPred[i]))
+    array_values = np.array([array_values])
+
+    k = request.form.get('cluster')
+
+    file_path = session.get('readFile')
+
+    checkFile = file_path.split(".")[1] #Cut the file extension
+
+    if(checkFile == "csv"):
+        data = pd.read_csv(file_path)
+    elif(checkFile == "xlsx"):
+        data = pd.read_excel(file_path)
+    elif(checkFile == "json"):
+        data = pd.read_json(file_path)
+
+    # col1  = session.get('col1')
+    # col2  = session.get('col2')
+    col = session.get('col')
+
+    col1 = col[0]
+    col2 = col[1]
+    # print(col1, col2)
+    haha = 0
+
+    X = data.iloc[int(haha):, col].values
+
+    # print(X)
+
+    name_column = list(data.columns)
+
+    if len(col) <= 2:
+        name1 = name_column[int(col1)]
+        name2 = name_column[int(col2)]
+
+        km = KMeans(n_clusters=int(k))
+        y_means = km.fit_predict(X)
+        result = km.predict(array_values)
+
+        data['Clusters'] = y_means
+
+        for i in range(0, int(k)):
+            data["Clusters"].replace({i: "C" + str(i+1)}, inplace=True)
+
+        x_coordinates = [0, 1, 2, 3, 4, 5] #random color
+        y_coordinates = [0, 1, 2, 3, 4, 5] #random color
+
+        for i in range(0, int(k)):
+            for x, y in zip(x_coordinates, y_coordinates): #random color
+                rgb = (random.random(), random.random(), random.random())
+            plt.scatter(X[y_means == i, 0], X[y_means == i, 1], s=15, marker='h', c=[rgb], label='Cluster ' + str(i+1))
+        # plt.scatter(X[y_means == 0, 0], X[y_means == 0, 1], s=100, c='red', label='Nhóm 1')
+        # plt.scatter(X[y_means == 1, 0], X[y_means == 1, 1], s=100, c='blue', label='Nhóm 2')
+        # plt.scatter(X[y_means == 2, 0], X[y_means == 2, 1], s=100, c='green', label='Nhóm 3')
+        plt.scatter(km.cluster_centers_[:, 0], km.cluster_centers_[:, 1], s=100, marker='*',c='black', label='Centeroid')
+        # plt.plot(plt.legend()x,y)
+
+        plt.style.use('fivethirtyeight')
+        
+        plt.title('K Means Clustering', fontsize=20)
+
+        plt.xlabel(name1)
+        plt.ylabel(name2)
+        
+        plt.legend()
+        
+        plt.grid()
+        # image = 'static/images/kmeans/'+ str(uuid.uuid4())[:8] +'_plot.png'
+        image = 'static/images_kmeans/plot.svg'
+        plt.savefig(image)
+
+        return render_template('kmeans/result.html', data=data.to_html(table_id='myTable', classes='table table-striped', header=True, index=False), url='/'+image, result=result, array_values=array_values)
+    else:
+        km = KMeans(n_clusters=int(k))
+        y_means = km.fit_predict(X)
+        result = km.predict(array_values)
+
+        data['Clusters'] = y_means
+
+        for i in range(0, int(k)):
+            data["Clusters"].replace({i: "C" + str(i+1)}, inplace=True)
+
+        return render_template('kmeans/result.html', data=data.to_html(table_id='myTable', classes='table table-striped', header=True, index=False), result=result, array_values=array_values)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
