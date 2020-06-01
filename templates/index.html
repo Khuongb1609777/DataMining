@@ -1,160 +1,191 @@
+ {% extends 'base.html' %} {% block content %}
 
-        {% extends 'base.html' %}
+<div class="jumbotron text-center ">
+    <div class="row">
+        <div class="col l-6 m-12 c-12 wow">
+            <h1 class="display-4 font-weight-bold">WE HAVE CLASSIFY & CLUSTER SOLUTION</h1>
+            <p>We provide classification solution by SVM</p>
+            <button type="button" class="button btn btn-warning">Start Graph</button>
+        </div>
+        <div class="col l-6 m-12 c-12">
+            <img src="../static/images_web_content/spbgbanner1.png" class="img-fluid" alt="Responsive image">
+            <!-- <img src="./spbgbanner1.png" alt=" sizes = "(max-width : 583px)" > -->
+        </div>
+    </div>
 
-        {% block content %}
-        
-        <div class="jumbotron text-center ">
-                <div class="row">
-                        <div class="col l-6 m-12 c-12 wow">
-                                <h1 class="display-4 font-weight-bold">WE HAVE CLASSIFY & CLUSTER SOLUTION</h1>
-                                <p>We provide classification solution by SVM</p> 
-                                <button type="button" class="button btn btn-warning">Start Graph</button>
-                        </div>
-                        <div class="col l-6 m-12 c-12">
-                                <img src="../static/images_web_content/spbgbanner1.png" class="img-fluid" alt="Responsive image">
-                                <!-- <img src="./spbgbanner1.png" alt=" sizes = "(max-width : 583px)" > -->
-                        </div>
+</div>
+
+
+<div class="container-fluid padding">
+    <div class="row wellcome text-center">
+        <div class="col-12">
+            <h1 class="display-4 font-weight-normal">Build your Model</h1>
+        </div>
+        <div class="col-12">
+            <h5>Build, Train and Deploy data classifiers. You no coding or data science experience and you want start now. we have your email here.</h5>
+        </div>
+    </div>
+</div><br>
+
+<div class="container padding">
+    <div class="row text-center">
+        <div class="col-sm-6">
+            <div data-wow-delay="0.1s" class="wow zoomInLeft" style="animation-duration: 1.0s !important;">
+                <div class="animated slideInLeft card card1">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #9581ca;">SVM Algorithm</h5>
+                        <p class="card-text text-dark">With Algorithm to find a hyperplane in an N-dimensional space(N the number of features) that distinctly classifies the data points.</p>
+                        <a href="SVM" class="button btn btn-primary " style="background-color: #9581ca !important; width:100px ;">Start</a>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div data-wow-delay="0.1s" class="wow zoomInRight" style="animation-duration: 1.0s !important;">
+                <div class="animated slideInRight card card2">
+                    <div class="card-body delaycard">
+                        <h5 class="card-title" style="color: #7ec3b3;">K-Means Algorithm</h5>
+                        <p class="card-text text-dark">With a first group of randomly selected centroids, which are used as the beginning points for every cluster, and then performs iterative</p>
+                        <a href="kmeans" class="button btn btn-primary " style="width:100px">Start</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-6">
+            <div data-wow-delay="0.1s" class="wow zoomInRight" style="animation-duration: 1.5s !important;">
+                <div class="animated slideInLeft card card3">
+                    <div class="card-body ">
+                        <h5 class="card-title" style="color: #f8b4da;">Decision Trees Algorithm</h5>
+                        <p class="card-text text-dark">With Algorithm to find a hyperplane in an N-dimensional space(N the number of features) that distinctly classifies the data points.</p>
+                        <a href="DecisionTree" class="button btn btn-primary  " style="background-color: #f8b4da !important; width:100px">Start</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div data-wow-delay="0.1s" class="wow zoomInLeft" style="animation-duration: 1.5s !important;">
+                <div class="animated slideInRight card card4">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #f6bd68;">Navie-Bayes Algorithm</h5>
+                        <p class="card-text text-dark">With a first group of randomly selected centroids, which are used as the beginning points for every cluster, and then performs iterative</p>
+                        <a href="NaiveBayes" class="button btn btn-primary  " style="background-color: #f6bd68 !important ; width:100px">Start</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="col l-12 c-12 m-12" style="margin-top: 2rem;">
+    <div class="wow bounceInRight container-video ">
+        <div class="box" style="border-radius: 0.5rem;">
+            <div class="videoBx ">
+                <video src="../static/images_web_content/production ID_3775287.mp4" muted autoplay loop style="border-radius: 0.5rem;"></video>
+            </div>
+            <div class="contentBx">
+                <div class="content">
+                    <h2>How to use?</h2>
+                    <p>Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is
+                        rare, powerful, and sustaining.</p>
+                    <p>Chọn giải thuật mà bạn cần xử lý cho dữ liệu, sau đó chọn tập dữ liệu cần xử lý</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-context hide-on-mobile-tablet ">
+            <p data-wow-duration="2s" class="wow  zoomIn card-text text-dark" style="margin: 3rem; font-size: 1.5rem;">Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is rare, powerful,
+                and sustaining.</p>
+            <p data-wow-duration="2s" data-wow-delay="0.3s" class="wow  zoomIn card-text text-dark" style="margin: 3rem; font-size: 1.5rem;">Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is rare, powerful,
+                and sustaining.</p>
+
+        </div>
+    </div>
+
+</div> -->
+
+
+
+    </div>
+
+    <div class="container-fluid" style="margin: 0px !important; padding: 0px !important ;">
+        <div class="row">
+            <div class="col l-6 c-12 m-12">
+                <div class="wow bounceInLeft container-video " style="justify-content: flex-end; padding-right: 3rem;">
+                    <div class="box" style="border-radius: 0.5rem;">
+                        <div class="videoBx ">
+                            <video src="../static/images_web_content/production ID_3775287.mp4" muted autoplay loop style="border-radius: 0.5rem;"></video>
+                        </div>
+                        <div class="contentBx">
+                            <div class="content">
+                                <h2>How to use?</h2>
+                                <p>Chọn Giải thuật mà bạn cần xử lý tập dữ liệu của mình </p>
+                                <p>Chọn số cột dữ liệu muốn hiển thị </p>
+                                <p>Hiển thị kết quả phân hoạch ra màn hình</p>
+
+                                <!-- <p>Chọn giải thuật mà bạn cần xử lý cho dữ liệu, sau đó chọn tập dữ liệu cần xử lý</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-6 c-12 m-12">
+                <div class="wow bounceInRight container-video " style="justify-content: flex-start; padding-left: 3rem;">
+                    <div class="box" style="border-radius: 0.5rem;">
+                        <div class="videoBx ">
+                            <video src="../static/images_web_content/video.mp4" muted autoplay loop style="border-radius: 0.5rem;"></video>
+                        </div>
+                        <div class="contentBx">
+                            <div class="content">
+                                <h2>Responsive Media</h2>
+                                <p>Sản phẩm tương thích với nhiều kích cở màn hình trên nhiều thiết bị</p>
+                                <!-- <p>Chọn giải thuật mà bạn cần xử lý cho dữ liệu, sau đó chọn tập dữ liệu cần xử lý</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 
+
+
+            </div>
+
         </div>
 
 
-        <div class="container-fluid padding">
-                <div class="row wellcome text-center">
-                        <div class="col-12">
-                                <h1 class="display-4 font-weight-normal">Build your Model</h1>
-                        </div>
-                        <div class="col-12" >
-                                <h5>Build, Train and Deploy data classifiers.
-                                        You no coding or data science experience and you want start now.
-                                        we have your email here.</h5>
-                        </div>
-                </div>
-        </div><br>
+        <!-- Footer -->
+        <footer>
 
-        <div class="container padding">
-                <div class="row text-center">
-                        <div class="col-sm-6">
-                                <div data-wow-delay="0.1s" class="wow zoomInLeft" style="animation-duration: 1.0s !important;">
-                                <div class="animated slideInLeft card card1" >
-                                  <div class="card-body" >
-                                    <h5 class="card-title" style="color: #9581ca;">SVM Algorithm</h5>
-                                    <p class="card-text text-dark">With Algorithm to find a hyperplane in an N-dimensional space(N the number of features) that distinctly classifies the data points.</p>
-                                    <a href="SVM" class="button btn btn-primary " style="background-color: #9581ca !important; width:100px ;">Start</a>
-                                  </div>
-                                </div>
-                                </div>
-                        </div>
-                        <div class="col-sm-6">
-                                <div data-wow-delay="0.1s" class="wow zoomInRight" style="animation-duration: 1.0s !important;">
-                                <div class="animated slideInRight card card2">
-                                  <div class="card-body delaycard">
-                                    <h5 class="card-title" style="color: #7ec3b3;">K-Means Algorithm</h5>
-                                    <p class="card-text text-dark">With a first group of randomly selected centroids, which are used as the beginning points for every cluster, and then performs iterative</p>
-                                    <a href="kmeans" class="button btn btn-primary " style="width:100px">Start</a>
-                                  </div>
-                                </div>
-                                </div>
-                        </div>
-                </div>
-                <div class="row text-center">
-                        <div class="col-sm-6">
-                                <div data-wow-delay="0.1s" class="wow zoomInRight" style="animation-duration: 1.5s !important;">
-                                <div class="animated slideInLeft card card3">
-                                  <div class="card-body ">
-                                    <h5 class="card-title" style="color: #f8b4da;">Decision Trees Algorithm</h5>
-                                    <p class="card-text text-dark">With Algorithm to find a hyperplane in an N-dimensional space(N the number of features) that distinctly classifies the data points.</p>
-                                    <a href="DecisionTree" class="button btn btn-primary  " style="background-color: #f8b4da !important; width:100px">Start</a>
-                                  </div>
-                                </div>
-                                </div>
-                        </div>
-                        <div class="col-sm-6">
-                                <div data-wow-delay="0.1s" class="wow zoomInLeft" style="animation-duration: 1.5s !important;">
-                                <div class="animated slideInRight card card4" >
-                                  <div class="card-body">
-                                    <h5 class="card-title" style="color: #f6bd68;">Navie-Bayes Algorithm</h5>
-                                    <p class="card-text text-dark">With a first group of randomly selected centroids, which are used as the beginning points for every cluster, and then performs iterative</p>
-                                    <a href="NaiveBayes" class="button btn btn-primary  " style="background-color: #f6bd68 !important ; width:100px">Start</a>
-                                  </div>
-                                </div>
-                                </div>
-                        </div>
-                </div>
-        </div>
-            
-
-
-                        <div class="col l-12 c-12 m-12" style="margin-top: 2rem;" >
-                                <div class="wow bounceInRight container-video "  >            
-                                        <div class="box" style="border-radius: 0.5rem;" >
-                                                        <div class="videoBx " >
-                                                                <video  src="../static/images_web_content/production ID_3775287.mp4" muted autoplay loop style="border-radius: 0.5rem;"  ></video>
-                                                        </div>
-                                                <div class="contentBx">
-                                                        <div class="content">
-                                                        <h2>How to use?</h2>
-                                                        <p>Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is rare, powerful, and sustaining.</p>                                                        <p>Chọn giải thuật mà bạn cần xử lý cho dữ liệu, sau đó chọn tập dữ liệu cần xử lý</p>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                                <div class="container-context hide-on-mobile-tablet ">
-                                                        <p data-wow-duration="2s" class="wow  zoomIn card-text text-dark" style="margin: 3rem; font-size: 1.5rem;">Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is rare, powerful, and sustaining.</p>
-                                                        <p data-wow-duration="2s" data-wow-delay="0.3s" class="wow  zoomIn card-text text-dark" style="margin: 3rem; font-size: 1.5rem;">Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is rare, powerful, and sustaining.</p>
-
-                                                </div>
-                                </div>
-                                
-                        </div>
-                        <div class="col l-12 c-12 m-12" style="margin-top: 2rem;" >
-                                <div class="wow bounceInLeft container-video  "  >            
-                                        <div class="box" style="border-radius: 0.5rem;" >
-                                                        <div class="videoBx " >
-                                                                <video  src="../static/images_web_content/production ID_3775287.mp4" muted autoplay loop style="border-radius: 0.5rem;"  ></video>
-                                                        </div>
-                                                <div class="contentBx">
-                                                        <div class="content">
-                                                        <h2>How to use?</h2>
-                                                        <p>Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is rare, powerful, and sustaining.</p>                                                        <p>Chọn giải thuật mà bạn cần xử lý cho dữ liệu, sau đó chọn tập dữ liệu cần xử lý</p>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="container-context hide-on-mobile-tablet ">
-                                                <p data-wow-duration="2s" class="wow  zoomIn card-text text-dark" style="margin: 3rem; font-size: 1.5rem;">Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is rare, powerful, and sustaining.</p>
-                                                <p data-wow-duration="2s" data-wow-delay="0.3s" class="wow  zoomIn card-text text-dark" style="margin: 3rem; font-size: 1.5rem;">Most corporations are required to prioritize shareholder returns above all else. Not us. We are legally structured as a Public Benefit Corporation so we can pursue our mission and shareholder value with equal vigor. This ability is rare, powerful, and sustaining.</p>
-
-                                        </div>
-                                </div>
-                                
-                        </div>
-                        
-            <!-- Footer --> 
-
-       
-            <div class="card" style="margin-top: 3rem !important;" >
+            <div class="card" style="margin-top: 3rem !important;">
                 <div class="card-header text-light" style="background-color: #7ec3b3;">
-                  Quote Ouote Qoute
+                    Quote Ouote Qoute
                 </div>
-                
-                        <div class="card-body" style="background-color: #c9e6df; color: white !important;">
-                                <div class="row">
-                                        <div class="col col-6 ">
-                                                <blockquote class="blockquote mb-6">
-                                                        <p class="text-dark">Have a nice day for you and my Team</p>
-                                                        <footer class="blockquote-footer">&copy; 2020 - No coppyright<cite title="Source Title"></cite></footer>
-                                                        </blockquote>
-                                        </div>
-                                        <div class="col col-6 ">
-                                                <div class="row" style="float: right !important;">
-                                                        <a class="nav-link display-4" href="#"><i class="fab fa-facebook text-muted"></i></a>
-                                                        <a class="nav-link display-4" href="#"><i class="fab fa-twitter text-muted"></i></a>
-                                                </div>
-                                        </div>
-                                </div>
+
+                <div class="card-body" style="background-color: #c9e6df; color: white !important;">
+                    <div class="row">
+                        <div class="col col-6 ">
+                            <blockquote class="blockquote mb-6">
+                                <p class="text-dark">Have a nice day for you and my Teams</p>
+                                <footer class="blockquote-footer">&copy; 2020 - No coppyright<cite title="Source Title"></cite></footer>
+                            </blockquote>
                         </div>
-              </div>
-<script>
-new WOW().init();
-</script>
+                        <div class="col col-6 ">
+                            <div class="row" style="float: right !important;">
+                                <a class="nav-link display-4" href="#"><i class="fab fa-facebook text-muted"></i></a>
+                                <a class="nav-link display-4" href="#"><i class="fab fa-twitter text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <script>
+            new WOW().init();
+        </script>
 
         {% endblock %}
