@@ -896,4 +896,5 @@ def kmeans_result():
 if __name__ == '__main__':
     app.run(debug=True)
 
+#   Done project
 # End && this is perfect code =)) ------------------------------------------------------------------------
