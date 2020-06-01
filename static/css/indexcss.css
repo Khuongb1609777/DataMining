@@ -206,13 +206,13 @@ h1.display-4 {
 }
 
 .container-video .box .contentBx .content h2 {
-    color: #7ec3b3;
+    color: #808080;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
 .container-video .box .contentBx .content p {
-    color: #7ec3b3;
+    color: #808080;
     font-weight: 300;
     margin-bottom: 10px;
     font-size: 1.2rem !important;
@@ -287,7 +287,8 @@ h1.display-4 {
 /* Icon footer */
 
 .fa-facebook {
-    color: white;
+    color: white !important;
+    opacity: 0.8;
 }
 
 .fa-facebook:hover {
@@ -295,7 +296,8 @@ h1.display-4 {
 }
 
 .fa-twitter {
-    color: white;
+    opacity: 0.8;
+    color: white !important;
 }
 
 .fa-twitter:hover {

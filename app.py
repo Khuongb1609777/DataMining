@@ -18,7 +18,7 @@ import os
 
 #   Create UPLOAD_FOLDER is static/uploads
 UPLOAD_FOLDER = 'static/uploads' #  Location is saving uploaded
-ALLOWED_EXTENSIONS = {'csv'} #  Kind of file
+ALLOWED_EXTENSIONS = {'csv','json','xlsx'} #  Kind of file
 
 app = Flask(__name__)
 
@@ -81,7 +81,7 @@ def SVM_data():
 
             if file_tail == "csv":
                 data = pd.read_csv(file_path)
-            elif file_tail == "excel":
+            elif file_tail == "xlsx":
                 data = pd.read_excel(file_path)
             else:
                 data = pd.read_excel(file_path)
@@ -103,7 +103,7 @@ def SVM_data():
 
             if file_tail == "csv":
                 data = pd.read_csv(file_path,names = column_names_attribute)
-            elif file_tail == "excel":
+            elif file_tail == "xlsx":
                 data = pd.read_excel(file_path,names = column_names_attribute)
             else:
                 data = pd.read_excel(file_path,names = column_names_attribute)
@@ -121,7 +121,7 @@ def SVM_result():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path)
     else:
         data = pd.read_excel(file_path)
@@ -140,7 +140,7 @@ def SVM_result():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path,names = column_names_attribute)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path,names = column_names_attribute)
     else:
         data = pd.read_excel(file_path,names = column_names_attribute)
@@ -235,7 +235,7 @@ def SVM_test_new():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path)
     else:
         data = pd.read_excel(file_path)
@@ -307,7 +307,7 @@ def DTree_data():
 
             if file_tail == "csv":
                 data = pd.read_csv(file_path)
-            elif file_tail == "excel":
+            elif file_tail == "xlsx":
                 data = pd.read_excel(file_path)
             else:
                 data = pd.read_excel(file_path)
@@ -331,7 +331,7 @@ def DTree_data():
 
             if file_tail == "csv":
                 data = pd.read_csv(file_path,names = column_names_attribute)
-            elif file_tail == "excel":
+            elif file_tail == "xlsx":
                 data = pd.read_excel(file_path,names = column_names_attribute)
             else:
                 data = pd.read_excel(file_path,names = column_names_attribute)
@@ -346,7 +346,7 @@ def DTree_result():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path)
     else:
         data = pd.read_excel(file_path)
@@ -363,7 +363,7 @@ def DTree_result():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path,names = column_names_attribute)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path,names = column_names_attribute)
     else:
         data = pd.read_excel(file_path,names = column_names_attribute)
@@ -450,7 +450,7 @@ def DTree_test_new():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path)
     else:
         data = pd.read_excel(file_path)
@@ -523,7 +523,7 @@ def NaiveBayes_data():
 
             if file_tail == "csv":
                 data = pd.read_csv(file_path)
-            elif file_tail == "excel":
+            elif file_tail == "xlsx":
                 data = pd.read_excel(file_path)
             else:
                 data = pd.read_excel(file_path)
@@ -546,7 +546,7 @@ def NaiveBayes_data():
 
             if file_tail == "csv":
                 data = pd.read_csv(file_path,names = column_names_attribute)
-            elif file_tail == "excel":
+            elif file_tail == "xlsx":
                 data = pd.read_excel(file_path,names = column_names_attribute)
             else:
                 data = pd.read_excel(file_path,names = column_names_attribute)
@@ -564,7 +564,7 @@ def NaiveBayes_result():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path)
     else:
         data = pd.read_excel(file_path)
@@ -582,7 +582,7 @@ def NaiveBayes_result():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path,names = column_names_attribute)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path,names = column_names_attribute)
     else:
         data = pd.read_excel(file_path,names = column_names_attribute)
@@ -668,7 +668,7 @@ def NaiveBayes_test_new():
 
     if file_tail == "csv":
         data = pd.read_csv(file_path)
-    elif file_tail == "excel":
+    elif file_tail == "xlsx":
         data = pd.read_excel(file_path)
     else:
         data = pd.read_excel(file_path)
