@@ -747,8 +747,6 @@ def kmeans_data():
 
 @app.route('/kmeans/elbow', methods=['GET', 'POST'])
 def kmeans_elbow():
-    predColumn = session.get('predColumn') #Get the column 
-
     file_path = session.get('readFile')
 
     checkFile = file_path.split(".")[1] #Cut the file extension
@@ -762,7 +760,7 @@ def kmeans_elbow():
 
     col = request.form.getlist('cot') #Get values of checkbox form from
     # col = np.array(col)
-    session['predColumn'] = len(col) #Set column predict
+    predColumn = len(col) #Set column predict
 
     for i in range(len(col)):
         col[i] = int(col[i])
