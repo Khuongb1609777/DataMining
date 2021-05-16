@@ -181,11 +181,11 @@
     padding: 0px !important;
 }
 
-.zoom:hover {
+/* .zoom:hover {
     -ms-transform: scale(1.1); /* IE 9 */
     -webkit-transform: scale(1.1); /* Safari 3-8 */
     transform: scale(1.1); 
-  }
+  } */
 
 .zoom {
     transition: transform .2s; /* Animation */

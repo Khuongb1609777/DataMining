@@ -10,24 +10,188 @@
     </div>
     {% endif %} -->
 
-    <div class="card text-center">
-        <div class="card-header text-monospace">
-            <h1>Import your Data</h1>
-            <h3>Upload a EXCEL or SVM file to import text data</h3>
+    <div class="container-fluid padding">
+        <div class="row wellcome text-center">
+            <div class="col-12">
+                <h1 class="display-4 font-weight-normal">PREDICT OBESITY NOW</h1>
+            </div>
+            <div class="col-12">
+                <h5></h5>
+            </div>
         </div>
-        <form id="form" action="DecisionTree/data" method="POST" enctype="multipart/form-data">
-            <div class="card-body">
-                <div class="form-group mt-4">
-                    <div class="upload-btn-wrapper">
-                        <button type="button" class="btn btn-outline-primary btn-select">Select File</button>
-                        <input type="file" id="file" name="file">
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer text-muted">
-                <input type="submit" class="btn btn-primary" value="Upload">
-            </div>
+    </div><br>
+
+    <div class="card text-center">
+        <form id="form" action="/DecisionTree/predict" method="POST" enctype="multipart/form-data">
+            <table class="table">
+                <tbody>
+                  <tr>
+                    <td>  
+                        <div class="form-group">
+                            <label for="gender">Gender </label>
+                            <select class="form-control" name = "gender" id="gender">
+                                <option value = 1 selected>Male</option>
+                                <option value = 0>Female</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="age">Age </label>
+                            <input type="text" name="age" class="form-control" id="age" aria-describedby="emailHelp" placeholder="Age">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="height">Height (m) </label>
+                            <input type="text" class="form-control" name = "height" id="height" aria-describedby="emailHelp" placeholder="Height (m)">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg) </label>
+                            <input type="text" class="form-control" name = "weight" id="weight" aria-describedby="emailHelp" placeholder="Weight (kg)">
+                        </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="fhwo">FHWO <BR> (Family history with overweight)</label>
+                            <select class="form-control" name="fhwo" id="fhwo">
+                                <option value = 1 selected>yes</option>
+                                <option value = 0>no</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="favc">FAVC <BR> (Frequent of high caloric food)</label>
+                            <select class="form-control" name = "favc" id="favc">
+                                <option value = 1 selected>yes</option>
+                                <option value = 0>no</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="fcvc">FCVC <BR> (Frequency of vegetables)</label>
+                            <select class="form-control" name = "fcvc" id="fcvc">
+                                <option value = 0 selected>never</option>
+                                <option value = 1>some time</option>
+                                <option value = 3>always</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="ncp">NCP <BR> Number of main meals</label>
+                            <select class="form-control" name="ncp" id="ncp">
+                                <option value = 1 selected>1</option>
+                                <option value = 2>2</option>
+                                <option value = 3>3</option>
+                                <option value = 4>4</option>
+                            </select>
+                        </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="caec">CAEC <BR> (Food between meals)</label>
+                            <select class="form-control" name = "caec" id="caec">
+                                <option value = 0 selected>No</option>
+                                <option value = 1>Sometimes</option>
+                                <option value = 2>Frequently</option>
+                                <option value = 3>Always</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="smoke">SMOKE <BR> (SMOKING)</label>
+                            <select class="form-control" name = "smoke" id="smoke">
+                                <option value = 0 selected>no</option>
+                                <option value = 1>yes</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="ch2o">CH2O <BR> (Consumption of water daily)</label>
+                            <select class="form-control" name="ch2o" id="ch2o">
+                                <option value = 1 selected>1</option>
+                                <option value = 2>2</option>
+                                <option value = 3>3</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="scc">SCC<BR>  (Calories consumption monitoring)</label>
+                            <select class="form-control" name="scc" id="scc">
+                                <option value = 1 selected>yes</option>
+                                <option value = 0>no</option>
+                            </select>
+                        </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="faf">FAF <BR> (Physical activity frequency)</label>
+                            <select class="form-control" name = "faf" id="faf">
+                                <option value = 0 selected>I do not have</option>
+                                <option value = 1>1 or 2 days / week</option>
+                                <option value = 2>2 or 4 days / week</option>
+                                <option value = 3>4 or 5 days / week</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="tue">TUE <BR> (Time using technology devices)</label>
+                            <select class="form-control" name = "tue" id="tue">
+                                <option value = 0 selected>0 – 2 hours</option>
+                                <option value = 1>3 – 5 hours</option>
+                                <option value = 2>More than 5 hours</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="calc">CALC <BR> (Consumption of alcohol)</label>
+                            <select class="form-control" name = "calc" id="calc">
+                                <option value = 0 selected>I do not drink</option>
+                                <option value = 1>Sometimes</option>
+                                <option value = 2>Frequently</option>
+                                <option value = 3>Always</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="mtrans">MTRANS <BR> Transportation used</label>
+                            <select class="form-control" name = "mtrans" id="mtrans">
+                                <option value = 2 selected>Walking</option>
+                                <option value = 4>Bike</option>
+                                <option value = 3>Motorbike</option>
+                                <option value = 1>Automobile</option>
+                                <option value = 0>Public_Transportation</option>
+                            </select>
+                        </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
         </form>
-    </div>
+    </div>x
 </div>
 {% endblock %}

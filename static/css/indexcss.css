@@ -67,10 +67,10 @@ li.nav-item {
     margin-top: 1rem;
 }
 
-.btn-warning:hover {
+/* .btn-warning:hover {
     background-color: rgba(252, 252, 75, 1.0) !important;
     color: rgba(0, 0, 0, 0.8) !important;
-}
+} */
 
 .jumbotron.h1 {
     font-size: 3rem !important;
@@ -251,13 +251,13 @@ h1.display-4 {
     padding: 0px !important;
 }
 
-.zoom:hover {
+/* .zoom:hover {
     -ms-transform: scale(1.1);
     /* IE 9 */
     -webkit-transform: scale(1.1);
     /* Safari 3-8 */
     transform: scale(1.1);
-}
+} */
 
 .zoom {
     transition: transform .2s;
