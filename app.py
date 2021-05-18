@@ -172,7 +172,7 @@ def DTree_result():
 
     #   Model
     clf = tree.DecisionTreeClassifier(max_depth=3)
-     #max_depth = 3 là độ sâu của cây quyết định
+    #max_depth = 3 là độ sâu của cây quyết định
     clf = clf.fit(X_train, y_train)
 
     #   predict label for X_test
@@ -234,7 +234,6 @@ def DTree_test_new():
 #----------------------------------------------------------------------------------------------------------
 
 
-#
 if __name__ == '__main__':
     app.run(debug=True)
 
